@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 const PostPage = async () => {
-    const res = await fetch("http://localhost:5000/posts/");
+    const res = await fetch("http://localhost:5000/posts",{
+        cache: "no-store"
+    });
     const posts = await res.json();
-    console.log(posts);
+    // console.log(posts);
     return (
         <div>
             <h2 className="text-2xl">Total post: {posts.length} </h2>
